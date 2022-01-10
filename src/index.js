@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HelloWorld from './HelloWorld';
+import UserList from './UserList';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HelloWorld text="Connor" />
+    <UserList />
   </React.StrictMode>,
   document.getElementById('root')
 );
