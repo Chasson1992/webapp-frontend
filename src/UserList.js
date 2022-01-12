@@ -20,7 +20,7 @@ class UserList extends React.Component {
     componentDidMount = () => {
         this.checkForUsers();
 
-        setInterval(this.checkForUsers, 1000);
+        //setInterval(this.checkForUsers, 1000);
     }
 
     render() {

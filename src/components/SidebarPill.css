@@ -1,0 +1,15 @@
+.SidebarPill {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    background: none;
+    border: 0;
+    border-radius: 0.25rem;
+
+    margin-bottom: auto !important;
+
+    flex-direction: column !important;
+}

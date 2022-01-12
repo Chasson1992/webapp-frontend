@@ -17,7 +17,7 @@ class HelloWorld extends React.Component {
         fetch('/api/users/add', 
             { method: 'POST', 
               headers : {'Content-Type': 'application/json'}, 
-              body: JSON.stringify({firstName: array[0], lastName: array[1]}) 
+              body: JSON.stringify({firstName: array[0], lastName: array[1], isOnline: true}) 
             });
     }
 

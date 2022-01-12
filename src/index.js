@@ -4,9 +4,11 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import HelloWorld from './HelloWorld';
 import UserList from './UserList';
+import Sidebar from './components/Sidebar';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Sidebar/>
     <HelloWorld text="Connor" />
     <UserList />
   </React.StrictMode>,
