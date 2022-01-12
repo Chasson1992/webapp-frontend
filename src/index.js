@@ -2,15 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import HelloWorld from './HelloWorld';
-import UserList from './UserList';
-import Sidebar from './components/Sidebar';
+import Application from './main/Application';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Sidebar/>
-    <HelloWorld text="Connor" />
-    <UserList />
+    <Application />
   </React.StrictMode>,
   document.getElementById('root')
 );
