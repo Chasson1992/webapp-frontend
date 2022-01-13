@@ -41,9 +41,9 @@ class SidebarPill extends React.Component {
         ));
 
         return (
-            <ul className="SidebarPill">
+            <div className="SidebarPill">
                 {onlineUsers}
-            </ul>
+            </div>
         );
     }
 }

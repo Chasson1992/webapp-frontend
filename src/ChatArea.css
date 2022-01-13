@@ -1,3 +1,27 @@
+/*
+ * ChatArea
+ */
 .ChatArea {
-    flex-direction: column !important;
+    background-color: rgb(60 60 60);
+
+    flex: 4 !important;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+    justify-content: flex-start;
+
+    overflow-y: auto;
+}
+
+.ChatAreaDivider {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    height: 1px;
+}
+
+.ChatMessages {
+    font-size: large;
+    padding-left: 5px;
+    color: white;
 }

@@ -1,11 +1,12 @@
+import React from 'react';
 import Sidebar from './components/Sidebar';
 import ChatArea from '.././ChatArea';
-import React from 'react';
+import './Application.css'
 
 class Application extends React.Component {
   render() {
       return (
-      <div >
+      <div className="Application">
         <Sidebar/>
         <ChatArea/>
       </div>

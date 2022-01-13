@@ -12,6 +12,7 @@ class Sidebar extends React.Component {
                 <h1 className="SidebarHeaderText">
                     Bork!
                 </h1>
+                <div className="SiderbarDivider"/>
                 <SidebarPill/>
             </div >
         );
