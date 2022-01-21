@@ -5,6 +5,9 @@ import SidebarPill from "./SidebarPill";
 
 class Sidebar extends React.Component {
 
+    static propTypes = {
+        roomSelectionHandler: PropTypes.func
+    }
 
     render() {
         return (
@@ -13,7 +16,7 @@ class Sidebar extends React.Component {
                     Bork!
                 </h1>
                 <div className="SiderbarDivider"/>
-                <SidebarPill/>
+                <SidebarPill roomSelectionHandler={this.props.roomSelectionHandler}/>
             </div >
         );
     }

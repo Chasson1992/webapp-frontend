@@ -20,8 +20,18 @@
     height: 1px;
 }
 
-.ChatMessages {
+.ChatMessagesContainer:hover {
+    background-color: rgb(70, 70, 70);
+}
+
+.ChatMessagesText {
     font-size: large;
     padding-left: 5px;
     color: white;
+}
+
+.ChatMessagesTimestamp {
+    font-size: x-small;
+    padding-left: 5px;
+    color: grey;
 }

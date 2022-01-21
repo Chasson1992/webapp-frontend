@@ -6,43 +6,83 @@ import './SidebarPill.css'
 
 class SidebarPill extends React.Component {
 
+    static propTypes = {
+        roomSelectionHandler: PropTypes.func
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            onlineUsers: []
+            // User Object from JSON
+            onlineUsers: [],
+            // Room Object from JSON
+            rooms: []
         }
     }
 
     checkForOnlineUsers = () => {
         // Fetch online users from the database
-        fetch("/api/users/online")
+        fetch("/api/users/search/online?online=true")
             .then(reponse => reponse.json())
             .then(data => {
                 this.setState({onlineUsers: data});
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    getRooms = () => {
+        // Fetch online users from the database
+        fetch("/api/rooms")
+            .then(reponse => reponse.json())
+            .then(data => {
+                this.setState({rooms: Object.values(data)});
+            })
+            .catch(error => {
+                console.log(error);
             });
     }
 
     componentDidMount = () => {
+        this.getRooms();
         this.checkForOnlineUsers();
 
-        // Polling once a second
-        setInterval(this.checkForOnlineUsers, 1000);
+        // Polling every 5 seconds
+        this.checkForUserTimer = setInterval(this.checkForOnlineUsers, 5000);
+    }
+
+    componentWillUnmount = () => {
+        clearInterval(this.checkForUserTimer);
     }
 
     render() {
 
-        let onlineUsers=[];
-        let displayName = "";
-        this.state.onlineUsers.forEach((user,index) =>(
-
-            onlineUsers.push(<SidebarItem 
+        let roomSidebarItems=[];
+        this.state.rooms.forEach((room,index) =>(
+            roomSidebarItems.push(<SidebarItem
+                roomId={room["id"]}
                 key={index} 
-                name={user.firstName + " " + user.lastName}/>)
+                name={room["name"]}
+                selectionHandler={this.props.roomSelectionHandler}/>)
+        ));
+
+        let onlineUserItems=[];
+        this.state.onlineUsers.forEach((user,index) =>(
+            onlineUserItems.push(<SidebarItem
+                roomId={user["id"]}
+                key={index} 
+                name={user["firstName"] + user["lastName"]}
+                selectionHandler={this.props.roomSelectionHandler}/>)
         ));
 
         return (
             <div className="SidebarPill">
-                {onlineUsers}
+                <div className="SiderbarPillHeaderText">Users</div>
+                {onlineUserItems}
+                <div className="SiderbarPillDivider"/>
+                <div className="SiderbarPillHeaderText">Rooms</div>
+                {roomSidebarItems}
             </div>
         );
     }

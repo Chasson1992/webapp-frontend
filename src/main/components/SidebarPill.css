@@ -2,10 +2,21 @@
     flex: 1;
 
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     flex-wrap: wrap;
 
     list-style: none;
     align-items: stretch;
     justify-content: flex-start;
+}
+
+.SiderbarPillHeaderText {
+    color: white;
+    font-size: large;
+    padding-bottom: 25px;
+}
+
+.SiderbarPillDivider {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px;
 }
