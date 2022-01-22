@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import './ChatArea.css'
 import ChatInput from "./ChatInput";
+import * as SockJS from 'sockjs-client';
 
 class ChatArea extends React.Component {
 
@@ -32,6 +33,11 @@ class ChatArea extends React.Component {
 
     componentDidMount = () => {
         this.checkForMessages();
+
+        const socket = new SockJS("http://localhost:8080/chatroom", {}, {CheckOrigin: () => false});
+        socket.onopen = () => {
+            console.log('Connected');
+        }
 
         // Polling every half second
         this.messageTimer = setInterval(this.checkForMessages, 500);
