@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Application from './main/Application';
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
+import logo from './logo.svg'
 
 // Setup web socket
 const stompClient = Stomp.over(new SockJS('/bork'));
@@ -21,6 +22,14 @@ stompClient.connect({}, function () {
 
 // You can change debug later to a logging framework (default value is console.log())
 stompClient.debug = null;
+
+// Render the spinning logo while we wait for initialization
+ReactDOM.render(
+  <div className="LoadingScreen">
+    <img src={logo} className="LoadingScreen-Logo"></img>
+  </div>,
+  document.getElementById('root')
+)
 
 export default stompClient;
 
