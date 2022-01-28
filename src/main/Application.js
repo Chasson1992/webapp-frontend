@@ -23,6 +23,7 @@ class Application extends React.Component {
         .then(reponse => reponse.json())
         .then(this.handleRoomResponse)
         .catch(error => {
+            // Use logging framework later now
             console.log(error);
         });
   }
@@ -32,8 +33,6 @@ class Application extends React.Component {
       messages: data.messages,
       activeRoomId: data.id
     });
-
-    console.log(this.state)
   }
 
   render() {

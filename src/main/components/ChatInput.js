@@ -7,16 +7,15 @@ class ChatInput extends React.Component {
     
     constructor(props) {
         super(props);
-
-        this.url = '/api/messages?roomId=' + this.props.roomId;
     }
 
     handleKeyDown = (event) => {
         if (event.key == "Enter" && event.target.value != "") {
+            let url = '/api/messages/'+this.props.roomId;
             // Send message to database and other user
             stompClient.send(
                 // URL
-                this.url,
+                url,
                 // Headers 
                 {}, 
                 // Contents

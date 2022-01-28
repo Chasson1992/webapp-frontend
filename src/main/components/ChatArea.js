@@ -13,7 +13,7 @@ class ChatArea extends React.Component {
         }
 
         // Setup subscription
-        let url = '/topic/messages?roomId=' + this.props.roomId;
+        let url = '/topic/messages/' + this.props.roomId;
         this.subscription = 
             stompClient.subscribe(url, this.handleMessageReceived)
 
