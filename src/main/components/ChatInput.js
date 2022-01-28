@@ -1,22 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import './ChatInput.css'
+import stompClient from "../..";
 
 class ChatInput extends React.Component {
     
     constructor(props) {
         super(props);
+
+        this.url = '/api/messages?roomId=' + this.props.roomId;
     }
 
     handleKeyDown = (event) => {
         if (event.key == "Enter" && event.target.value != "") {
             // Send message to database and other user
-            let url = "/api/rooms/addMessage?roomId=" + this.props.roomId;
-            fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify({text: event.target.value, sentTimestamp: new Date()})
-            });
+            stompClient.send(
+                // URL
+                this.url,
+                // Headers 
+                {}, 
+                // Contents
+                JSON.stringify({
+                    text: event.target.value, 
+                    sentTimestamp: new Date()
+                })
+            );
 
             // Clear the input value
             event.target.value = "";
@@ -25,14 +33,15 @@ class ChatInput extends React.Component {
 
     render() {
         return (
-            <input type="text" className="ChatInput" onKeyDown={this.handleKeyDown}></input>
+            <input type="text" className="ChatInput" placeholder="Start borking!" onKeyDown={this.handleKeyDown}></input>
         );
     }
 }
 
 ChatInput.propTypes = {
     roomId: PropTypes.string,
-    appendMessageList: PropTypes.func
+    appendMessageList: PropTypes.func,
+    client: PropTypes.object
 }
 
 ChatInput.defaultProps = {

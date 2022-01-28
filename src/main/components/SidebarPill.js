@@ -7,7 +7,7 @@ import './SidebarPill.css'
 class SidebarPill extends React.Component {
 
     static propTypes = {
-        roomSelectionHandler: PropTypes.func
+        roomSelectionHandler: PropTypes.func,
     }
 
     constructor(props) {

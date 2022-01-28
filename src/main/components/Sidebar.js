@@ -6,7 +6,7 @@ import SidebarPill from "./SidebarPill";
 class Sidebar extends React.Component {
 
     static propTypes = {
-        roomSelectionHandler: PropTypes.func
+        roomSelectionHandler: PropTypes.func,
     }
 
     render() {
