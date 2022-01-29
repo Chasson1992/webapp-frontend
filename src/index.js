@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Application from './main/Application';
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
-import logo from './logo.svg'
+import logo from './logo.png'
 
 // Setup web socket
 const stompClient = Stomp.over(new SockJS('/bork'));
