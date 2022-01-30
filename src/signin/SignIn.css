@@ -1,0 +1,15 @@
+.SignIn {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(41 41 41);
+  
+    height: 100vh;
+    width: 100vw;
+  
+    min-height: 600px;
+    min-width: 500px;
+}
