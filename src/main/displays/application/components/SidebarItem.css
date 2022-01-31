@@ -8,3 +8,8 @@
 .SidebarItem:hover {
     font-size: large;
 }
+
+.SidebarLink{
+    color: inherit !important;
+    text-decoration: inherit !important;
+}

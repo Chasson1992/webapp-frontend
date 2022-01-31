@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import './ChatInput.css'
-import stompClient from "../..";
+import stompClient from "../../../..";
 
 class ChatInput extends React.Component {
     
